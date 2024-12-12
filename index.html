@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Realidad Aumentada con Model Viewer</title>
-  <script src="https://cdn.jsdelivr.net/npm/model-viewer@1.12.0/dist/model-viewer.min.js"></script>
+  <title>AR.js - Imagen QR</title>
+  <script src="https://cdn.jsdelivr.net/npm/ar.js@2.1.2/dist/ar.js"></script>
   <style>
-    model-viewer {
+    #imagen-container {
       width: 100%;
       height: 100vh;
       background-color: #FFFFFF;
@@ -14,26 +14,39 @@
   </style>
 </head>
 <body>
-  <model-viewer 
-    id="model-viewer"
-    src="https://www.w3schools.com/tags/movie.mp4" 
-    poster="https://lleyton2024.github.io/7976021.jpg" 
-    ios-src="https://www.w3schools.com/tags/movie.mp4" 
-    ar-status="not-presenting" 
-    camera-controls 
-    auto-rotate>
-  </model-viewer>
+  <div id="imagen-container">
+    <img id="imagen" src="https://lleyton2024.github.io/7976021.jpg" width="640" height="480">
+  </div>
   <script>
-    const modelViewer = document.getElementById('model-viewer');
-    modelViewer.addEventListener('load', () => {
-      modelViewer.play();
+    // Crear un marcador de realidad aumentada
+    const marker = new AR.Marker({
+      iset: 'https://lleyton2024.github.io/w-776A_qrcode.iset',
+      fset3: 'https://lleyton2024.github.io/w-776A_qrcode.fset3',
+      fset: 'https://lleyton2024.github.io/w-776A_qrcode.fset',
+      markerGroup: new AR.MarkerGroup()
     });
-    modelViewer.addEventListener('ar-status', (event) => {
-      if (event.detail.status === 'presenting') {
-        modelViewer.play();
-      } else {
-        modelViewer.pause();
-      }
+
+    // Agregar un evento de carga al marcador
+    marker.addEventListener('load', () => {
+      // Crear un objeto de realidad aumentada
+      const object = new AR.Object({
+        image: document.getElementById('imagen')
+      });
+
+      // Agregar el objeto al marcador
+      marker.object = object;
+    });
+
+    // Agregar un evento de tracking al marcador
+    marker.addEventListener('tracking', () => {
+      // Mostrar la imagen cuando se detecta el marcador
+      document.getElementById('imagen').style.display = 'block';
+    });
+
+    // Agregar un evento de pérdida de tracking al marcador
+    marker.addEventListener('lost', () => {
+      // Ocultar la imagen cuando se pierde el tracking del marcador
+      document.getElementById('imagen').style.display = 'none';
     });
   </script>
 </body>
