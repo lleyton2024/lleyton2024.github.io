@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Image and 3D Model Viewer</title>
+  <title>GLB Viewer with Background</title>
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <style>
     body {
@@ -12,54 +12,26 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background-color: #f4f4f4;
-      overflow: hidden;
-      position: relative;
+      background-color: #f4f4f4; /* Fondo claro */
+      overflow: hidden; /* Evita barras de desplazamiento */
     }
-
-    /* Container for the model viewer */
-    .model-container {
-      position: relative;
+    model-viewer {
       width: 100%;
       max-width: 800px;
       height: 600px;
     }
-
-    /* Image as background */
-    .background-image {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1; /* Place the image behind the model */
-    }
-
-    /* Model Viewer */
-    model-viewer {
-      width: 100%;
-      height: 100%;
-    }
   </style>
 </head>
 <body>
-
-  <!-- Container for the model and the background image -->
-  <div class="model-container">
-    <!-- Background Image -->
-    <img src="https://lleyton2024.github.io/leonardo.jpg" alt="Background Image" class="background-image">
-
-    <!-- 3D Model Viewer -->
-    <model-viewer
-      src="https://lleyton2024.github.io/upload_merry_christmas__final_resize_optimize.glb"
-      alt="3D Model"
-      ar
-      auto-rotate
-      camera-controls
-      background-color="#ffffff">
-    </model-viewer>
-  </div>
-
+  <!-- Modelo interactivo con fondo de imagen -->
+  <model-viewer
+    src="https://lleyton2024.github.io/upload_merry_christmas_final_resize_optimize.glb"
+    alt="Modelo 3D"
+    ar
+    auto-rotate
+    camera-controls
+    background-color="#ffffff"
+    poster="path-to-your-image.jpg"> <!-- Reemplaza con la ruta a tu imagen JPG -->
+  </model-viewer>
 </body>
 </html>
