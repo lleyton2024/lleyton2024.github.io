@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GLB Viewer</title>
+  <title>GLB Viewer with Background</title>
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <style>
     body {
@@ -12,50 +12,25 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background-color: #f4f4f4;
-      overflow: hidden;
-      position: relative;
+      background-color: #f4f4f4; /* Fondo claro */
+      overflow: hidden; /* Evita barras de desplazamiento */
     }
-
-    /* Contenedor del modelo GLB */
-    .model-container {
-      position: relative;
+    model-viewer {
       width: 100%;
       max-width: 800px;
       height: 600px;
     }
-
-    /* Imagen detrás del modelo */
-    .background-image {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1; /* Coloca la imagen detrás del modelo */
-    }
-
-    /* El modelo 3D */
-    model-viewer {
-      width: 100%;
-      height: 100%;
-    }
-    
   </style>
 </head>
 <body>
-  <div class="model-container">
-    <img src="https://lleyton2024.github.io/leonardo.jpg" alt="Background Image" class="background-image">
-    <!-- Modelo interactivo -->
-    <model-viewer
-      src="https://lleyton2024.github.io/upload_merry_christmas_resize_optimize.glb"
-      alt="Modelo 3D"
-      ar
-      auto-rotate
-      camera-controls
-      background-color="#ffffff">
-    </model-viewer>
-  </div>
+  <!-- Modelo interactivo con fondo de imagen -->
+  <model-viewer
+    src="https://lleyton2024.github.io/upload_merry_christmas_resize_optimize.glb"  <!-- Reemplaza con la ruta a tu archivo GLB -->
+    alt="Modelo 3D"
+    ar
+    auto-rotate
+    camera-controls
+    background-color="#ffffff"
+  </model-viewer>
 </body>
 </html>
