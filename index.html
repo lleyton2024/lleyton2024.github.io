@@ -1,24 +1,37 @@
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
-  </head>
-  <body>
-    <a-scene mindar-image="imageTargetSrc: https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/image-tracking/assets/card-example/card.mind;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
-      <a-assets>
-	<img id="card" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/examples/image-tracking/assets/card-example/card.png" />
-	<a-asset-item id="avatarModel" src="https://lleyton2024.github.io/upload_merry_christmas_final_final_resize_optimize.glb"></a-asset-item>
-      </a-assets>
-
-      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-
-      <a-entity mindar-image-target="targetIndex: 0">
-        <a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
-        <a-gltf-model rotation="0 0 0 " position="0 0 0.1" scale="1 1 1" src="#avatarModel"
-          animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"
-        >
-      </a-entity>
-    </a-scene>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GLB Viewer with Background</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f4; /* Fondo claro */
+      overflow: hidden; /* Evita barras de desplazamiento */
+    }
+    model-viewer {
+      width: 100%;
+      max-width: 800px;
+      height: 600px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Modelo interactivo con fondo de imagen -->
+  <model-viewer
+    src="https://lleyton2024.github.io/upload_merry_christmas_final_final_resize_optimize.glb"
+    alt="Modelo 3D"
+    ar
+    ar-modes="scene-viewer"
+    auto-rotate
+    camera-controls
+    background-color="#ffffff">
+  </model-viewer>
+</body>
 </html>
