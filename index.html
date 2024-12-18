@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GLB Viewer with Background</title>
+  <title>GLB Viewer</title>
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <style>
     body {
@@ -13,24 +13,23 @@
       align-items: center;
       height: 100vh;
       background-color: #f4f4f4; /* Fondo claro */
-      overflow: hidden; /* Evita barras de desplazamiento */
     }
     model-viewer {
       width: 100%;
-      max-width: 800px;
-      height: 600px;
+      max-width: 600px;
+      height: 500px;
     }
   </style>
 </head>
 <body>
-  <!-- Modelo interactivo con fondo de imagen -->
+  <!-- Modelo interactivo -->
   <model-viewer
-    src="https://lleyton2024.github.io/upload_merry_christmas__final_resize_optimize.glb"  <!-- Reemplaza con la ruta a tu archivo GLB -->
+    src="https://lleyton2024.github.io/upload_merry_christmas__final_resize_optimize.glb"
     alt="Modelo 3D"
     ar
     auto-rotate
     camera-controls
-    background-color="#ffffff"
+    background-color="#ffffff">
   </model-viewer>
 </body>
 </html>
